@@ -1,0 +1,324 @@
+/* Hand-drawn look: ink outlines, flat "misprint" offset shadows, marker lettering,
+   loud background with starburst doodles. One fixed palette (no dark variant) so
+   the illustrations always read the same. */
+
+:root {
+  color-scheme: light;
+  --ink: #16121a;
+  --paper: #fff7e8;
+  --bg-a: #ff6a3d;
+  --bg-b: #ff3fa4;
+  --accent: #ff3fa4;
+  --muted: #5d5560;
+  --error: #c4122f;
+  --wobble: 255px 18px 225px 16px / 16px 225px 18px 255px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 48px 16px 64px;
+  display: grid;
+  place-items: start center;
+  overflow-x: hidden;
+  color: var(--ink);
+  background:
+    repeating-linear-gradient(115deg, rgb(255 255 255 / 0.07) 0 22px, transparent 22px 44px),
+    linear-gradient(160deg, var(--bg-a), var(--bg-b));
+  background-attachment: fixed;
+  font: 16px/1.55 "DM Sans", system-ui, sans-serif;
+}
+
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ------------------------------------------------------------ doodles */
+
+.doodles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+.doodle {
+  position: absolute;
+  --ink: var(--paper);
+  opacity: 0.9;
+  filter: url(#rough);
+  animation: spin 40s linear infinite;
+}
+.d1 { width: 90px; height: 90px; top: 8%; left: 6%; }
+.d2 { width: 56px; height: 56px; top: 62%; left: 10%; --ink: var(--ink); animation-direction: reverse; }
+.d3 { width: 110px; height: 110px; top: 18%; right: 5%; --ink: var(--ink); }
+.d4 { width: 64px; height: 64px; bottom: 8%; right: 11%; animation-direction: reverse; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ------------------------------------------------------------ card */
+
+.card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 680px;
+  background: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: var(--wobble);
+  padding: 36px 40px;
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+h1, h2, .eyebrow, .primary, .option-name, .def dt {
+  font-family: "Permanent Marker", "Comic Sans MS", cursive;
+  font-weight: 400;
+}
+
+h1 { font-size: 2.2rem; line-height: 1.15; margin: 0 0 16px; }
+h2 { font-size: 1.35rem; margin: 30px 0 14px; }
+a { color: var(--ink); text-decoration-color: var(--accent); text-decoration-thickness: 3px; }
+
+.eyebrow {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 2px 10px;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--wobble);
+  transform: rotate(-1.5deg);
+}
+
+.lead { font-size: 1.1rem; margin: 0 0 20px; }
+.fine { font-size: 0.9rem; color: var(--muted); margin: 16px 0; }
+.facts, .steps { padding-left: 1.3em; margin: 0 0 16px; }
+.facts li, .steps li { margin-bottom: 10px; }
+.facts li::marker { content: "✶  "; color: var(--accent); }
+
+kbd, code {
+  font: 0.85em ui-monospace, SFMono-Regular, Menlo, monospace;
+  background: #fff;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  padding: 0 6px;
+  box-shadow: 2px 2px 0 var(--ink);
+}
+
+button { font: inherit; cursor: pointer; color: var(--ink); }
+
+.primary {
+  margin-top: 12px;
+  padding: 12px 30px;
+  font-size: 1.15rem;
+  letter-spacing: 0.03em;
+  background: var(--ink);
+  color: var(--paper);
+  border: 3px solid var(--ink);
+  border-radius: var(--wobble);
+  box-shadow: 5px 5px 0 var(--accent);
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+.primary:hover:not(:disabled) { transform: translate(-2px, -2px); box-shadow: 7px 7px 0 var(--accent); }
+.primary:active:not(:disabled) { transform: translate(3px, 3px); box-shadow: 2px 2px 0 var(--accent); }
+.primary:disabled { opacity: 0.35; cursor: not-allowed; }
+
+:focus-visible { outline: 3px dashed var(--ink); outline-offset: 4px; }
+
+.error { color: var(--error); font-weight: 700; margin: 12px 0 0; }
+
+/* ------------------------------------------------------------ critters */
+
+.critter { display: block; width: 100%; height: 100%; overflow: visible; filter: url(#rough); }
+.critter-shadow { --ink: var(--emo); --paper: var(--emo); }
+[data-critter] { display: block; }
+[data-critter="bird"] .critter { --beak: #ff8a1f; }
+
+/* Welcome hero: the bird asks, the crew waits below */
+.hero { display: grid; justify-items: center; gap: 4px; margin: -8px 0 20px; }
+.hero-bird { position: relative; width: 120px; height: 120px; animation: bob 2.6s ease-in-out infinite; }
+.bubble {
+  position: absolute;
+  right: 104%;
+  top: 4px;
+  white-space: nowrap;
+  padding: 6px 14px;
+  font-family: "Permanent Marker", cursive;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: var(--wobble);
+  box-shadow: 4px 4px 0 var(--ink);
+  transform: rotate(-4deg);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  right: -14px;
+  top: 16px;
+  border: 8px solid transparent;
+  border-left: 12px solid var(--ink);
+}
+
+.crew { display: flex; justify-content: center; gap: 6px; flex-wrap: wrap; }
+.crew .critter { width: 78px; height: 78px; }
+.crew .critter:nth-child(odd) { transform: rotate(-6deg); }
+.crew .critter:nth-child(even) { transform: rotate(5deg) translateY(6px); }
+.party { margin-bottom: 18px; }
+.party .critter { width: 76px; height: 76px; animation: hop 1.2s ease-in-out infinite; }
+.party .critter:nth-child(2n) { animation-delay: 0.2s; }
+.party .critter:nth-child(3n) { animation-delay: 0.4s; }
+
+@keyframes bob { 50% { transform: translateY(-6px) rotate(-3deg); } }
+@keyframes hop { 50% { translate: 0 -12px; } }
+
+/* ------------------------------------------------------------ definitions */
+
+.definitions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 0; }
+.def {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  grid-template-rows: auto 1fr;
+  column-gap: 12px;
+  align-items: center;
+  padding: 10px 12px;
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: var(--wobble);
+  box-shadow: 4px 4px 0 var(--emo);
+}
+.def .critter { grid-row: 1 / 3; width: 56px; height: 56px; }
+.def dt { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; }
+.def dd { margin: 0; font-size: 0.9rem; color: var(--muted); line-height: 1.4; align-self: start; }
+.definitions.compact { grid-template-columns: 1fr; gap: 8px; }
+.definitions.compact .def { grid-template-columns: 40px 1fr; padding: 6px 10px; }
+.definitions.compact .def .critter { width: 40px; height: 40px; }
+
+.key {
+  display: inline-grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  background: #fff;
+  font: 700 0.72rem "DM Sans", sans-serif;
+}
+
+/* ------------------------------------------------------------ labeling */
+
+.progress-row { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
+.progress-row .eyebrow { margin: 0; white-space: nowrap; }
+.progress {
+  flex: 1;
+  height: 14px;
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.progress-bar {
+  height: 100%;
+  width: 0;
+  background: repeating-linear-gradient(135deg, var(--accent) 0 8px, #ff79c0 8px 16px);
+  border-right: 2.5px solid var(--ink);
+  transition: width 0.35s ease;
+}
+
+.post { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 26px; }
+.post-bird { flex: none; width: 76px; height: 76px; margin-top: 8px; animation: bob 2.6s ease-in-out infinite; }
+
+.tweet {
+  position: relative;
+  flex: 1;
+  margin: 0;
+  padding: 16px 22px 20px;
+  background: #fff;
+  border: 3px solid var(--ink);
+  border-radius: var(--wobble);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+/* speech-bubble tail pointing at the bird */
+.tweet::before, .tweet::after {
+  content: "";
+  position: absolute;
+  top: 26px;
+  border: 10px solid transparent;
+}
+.tweet::before { left: -21px; border-right: 18px solid var(--ink); }
+.tweet::after  { left: -14px; border-right: 14px solid #fff; top: 28px; border-width: 8px 14px 8px 0; }
+
+.tweet-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.tweet blockquote { margin: 0; font-size: 1.2rem; line-height: 1.55; font-weight: 500; }
+
+.question { font-family: "Permanent Marker", cursive; font-size: 1.2rem; margin: 0 0 14px; }
+
+.options { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+
+.option {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 2px;
+  padding: 12px 8px 10px;
+  background: #fff;
+  border: 2.5px solid var(--ink);
+  border-radius: var(--wobble);
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: transform 0.12s, box-shadow 0.12s, background 0.12s;
+}
+.option .critter { width: 64px; height: 64px; transition: transform 0.2s; }
+.option-name { font-size: 1.1rem; }
+.option .key { position: absolute; top: 8px; left: 8px; }
+
+.option:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--ink); }
+.option:hover .critter { transform: rotate(-6deg) scale(1.05); }
+.option.selected {
+  background: var(--emo);
+  transform: translate(2px, 2px) rotate(-1deg);
+  box-shadow: 2px 2px 0 var(--ink);
+}
+.option.selected .critter { animation: wiggle 0.5s ease-in-out; }
+/* on a colored button the shadow copy would disappear, so switch it to white */
+.option.selected .critter-shadow { --ink: #fff; --paper: #fff; }
+.option.selected .key { background: var(--ink); color: #fff; }
+
+@keyframes wiggle {
+  25% { transform: rotate(-12deg) scale(1.1); }
+  50% { transform: rotate(10deg) scale(1.1); }
+  75% { transform: rotate(-5deg); }
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 24px;
+}
+.actions .primary { margin-top: 0; }
+.help { flex: 1; font-size: 0.92rem; }
+.help summary { cursor: pointer; padding: 10px 0; font-weight: 700; }
+.help[open] summary { margin-bottom: 8px; }
+
+/* ------------------------------------------------------------ small screens */
+
+@media (max-width: 600px) {
+  body { padding: 20px 16px 40px; }
+  .card { padding: 26px 20px; box-shadow: 6px 6px 0 var(--ink); }
+  h1 { font-size: 1.7rem; }
+  .doodle { opacity: 0.5; }
+  .definitions { grid-template-columns: 1fr; }
+  .options { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .option .critter { width: 52px; height: 52px; }
+  .crew { gap: 2px; flex-wrap: nowrap; }
+  .crew .critter { width: 42px; height: 42px; }
+  .party .critter { width: 42px; height: 42px; }
+  .post-bird { width: 52px; height: 52px; }
+  .tweet blockquote { font-size: 1.08rem; }
+  .bubble { font-size: 0.85rem; }
+  .actions { flex-direction: column-reverse; align-items: stretch; }
+  .actions .primary { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

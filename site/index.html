@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emotion Labeling Study</title>
+  <meta name="description" content="Label the emotion expressed in 5 short social media posts.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Permanent+Marker&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Illustration sprite. Ink shapes use var(--ink), details use var(--paper), so the
+       same drawing can be reused as a flat colored "misprint" shadow behind itself. -->
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <defs>
+      <filter id="rough" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="2" seed="7"/>
+        <feDisplacementMap in="SourceGraphic" scale="3.5"/>
+      </filter>
+
+      <!-- Joy: a grinning starburst -->
+      <symbol id="c-joy" viewBox="0 0 120 120">
+        <path fill="var(--ink)" d="M60.0 16.0 L68.6 29.0 L82.3 21.5 L83.9 37.1 L99.5 36.7 L93.7 51.2 L107.7 58.2 L95.7 68.3 L104.9 81.0 L89.6 84.5 L91.8 99.9 L76.7 95.9 L71.5 110.6 L60.0 100.0 L48.5 110.6 L43.3 95.9 L28.2 99.9 L30.4 84.5 L15.1 81.0 L24.3 68.3 L12.3 58.2 L26.3 51.2 L20.5 36.7 L36.1 37.1 L37.7 21.5 L51.4 29.0 Z"/>
+        <g fill="none" stroke="var(--paper)" stroke-width="4.5" stroke-linecap="round">
+          <path d="M42 58 q6 -8 12 0"/>
+          <path d="M66 58 q6 -8 12 0"/>
+        </g>
+        <path fill="var(--paper)" d="M42 69 q18 24 36 0 z"/>
+      </symbol>
+
+      <!-- Love: a blushing heart with a spare heart floating off -->
+      <symbol id="c-love" viewBox="0 0 120 120">
+        <path fill="var(--ink)" d="M60 108 C22 82 10 56 26 38 C40 24 56 30 60 44 C64 30 80 24 94 38 C110 56 98 82 60 108 Z"/>
+        <path fill="var(--ink)" d="M99 22 c-4 -6 -12 -2 -8 5 l8 8 l8 -8 c4 -7 -4 -11 -8 -5 z"/>
+        <g fill="none" stroke="var(--paper)" stroke-width="4.5" stroke-linecap="round">
+          <path d="M40 58 q6 6 12 0"/>
+          <path d="M68 58 q6 6 12 0"/>
+          <path d="M53 74 q7 7 14 0"/>
+        </g>
+        <g fill="var(--paper)" opacity="0.8">
+          <ellipse cx="38" cy="69" rx="5" ry="3"/>
+          <ellipse cx="82" cy="69" rx="5" ry="3"/>
+        </g>
+      </symbol>
+
+      <!-- Surprise: a ghost throwing its arms up -->
+      <symbol id="c-surprise" viewBox="0 0 120 120">
+        <g fill="none" stroke="var(--ink)" stroke-width="8" stroke-linecap="round">
+          <path d="M38 70 L18 44"/>
+          <path d="M82 70 L102 44"/>
+          <path d="M60 6 L60 18"/>
+        </g>
+        <circle cx="60" cy="27" r="3.5" fill="var(--ink)"/>
+        <path fill="var(--ink)" d="M32 112 L32 66 C32 30 88 30 88 66 L88 112 L79 104 L70 112 L60 104 L50 112 L41 104 Z"/>
+        <circle cx="47" cy="62" r="10" fill="var(--paper)"/>
+        <circle cx="73" cy="62" r="10" fill="var(--paper)"/>
+        <circle cx="47" cy="62" r="3.5" fill="var(--ink)"/>
+        <circle cx="73" cy="62" r="3.5" fill="var(--ink)"/>
+        <ellipse cx="60" cy="87" rx="6" ry="8.5" fill="var(--paper)"/>
+      </symbol>
+
+      <!-- Sadness: a melting blob under its own raincloud -->
+      <symbol id="c-sadness" viewBox="0 0 120 120">
+        <path fill="var(--ink)" d="M38 30 a8 8 0 0 1 8 -12 a11 11 0 0 1 20 -3 a9 9 0 0 1 14 7 a7 7 0 0 1 -2 14 h-36 a6 6 0 0 1 -4 -6 z"/>
+        <g fill="none" stroke="var(--ink)" stroke-width="3" stroke-linecap="round">
+          <path d="M48 40 l-2 4"/>
+          <path d="M62 40 l-2 4"/>
+          <path d="M76 40 l-2 4"/>
+        </g>
+        <path fill="var(--ink)" d="M24 104 C20 72 36 52 60 52 C84 52 100 72 96 104 Q88 112 80 104 Q72 116 63 106 Q54 116 46 106 Q38 114 32 106 Q28 110 24 104 Z"/>
+        <g fill="none" stroke="var(--paper)" stroke-width="4" stroke-linecap="round">
+          <path d="M38 70 L52 65"/>
+          <path d="M82 70 L68 65"/>
+          <path d="M50 96 q10 -9 20 0"/>
+        </g>
+        <circle cx="46" cy="79" r="6" fill="var(--paper)"/>
+        <circle cx="74" cy="79" r="6" fill="var(--paper)"/>
+        <circle cx="46" cy="82" r="3" fill="var(--ink)"/>
+        <circle cx="74" cy="82" r="3" fill="var(--ink)"/>
+        <path fill="var(--paper)" d="M38 88 q-4 6 0 9 q4 -3 0 -9 z"/>
+      </symbol>
+
+      <!-- Fear: a one-eyed creature on shaky legs -->
+      <symbol id="c-fear" viewBox="0 0 120 120">
+        <g fill="none" stroke="var(--ink)" stroke-width="5" stroke-linecap="round">
+          <path d="M44 80 q-8 12 -3 28"/>
+          <path d="M55 84 q-4 12 2 24"/>
+          <path d="M66 84 q6 12 0 24"/>
+          <path d="M77 80 q10 12 4 28"/>
+          <path d="M20 36 l-8 -4"/>
+          <path d="M16 52 l-9 0"/>
+          <path d="M20 68 l-8 4"/>
+          <path d="M100 36 l8 -4"/>
+          <path d="M104 52 l9 0"/>
+          <path d="M100 68 l8 4"/>
+        </g>
+        <path fill="var(--ink)" d="M60 10 C84 10 92 32 90 54 C88 76 78 88 60 88 C42 88 32 76 30 54 C28 32 36 10 60 10 Z"/>
+        <path fill="var(--paper)" d="M38 44 Q60 20 82 44 Q60 68 38 44 Z"/>
+        <circle cx="60" cy="44" r="4" fill="var(--ink)"/>
+        <path fill="none" stroke="var(--paper)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"
+              d="M45 70 l5 -4 l5 4 l5 -4 l5 4 l5 -4 l5 4"/>
+      </symbol>
+
+      <!-- Anger: a horned block with gritted teeth, fuming -->
+      <symbol id="c-anger" viewBox="0 0 120 120">
+        <circle cx="60" cy="16" r="6" fill="var(--ink)"/>
+        <circle cx="70" cy="7" r="4" fill="var(--ink)"/>
+        <circle cx="51" cy="8" r="3" fill="var(--ink)"/>
+        <path fill="var(--ink)" d="M34 42 L24 16 L50 38 Z"/>
+        <path fill="var(--ink)" d="M86 42 L96 16 L70 38 Z"/>
+        <path fill="var(--ink)" d="M20 108 L25 50 Q27 36 42 36 L78 36 Q93 36 95 50 L100 108 Z"/>
+        <g fill="none" stroke="var(--paper)" stroke-width="5" stroke-linecap="round">
+          <path d="M36 56 L54 64"/>
+          <path d="M84 56 L66 64"/>
+        </g>
+        <circle cx="46" cy="72" r="5.5" fill="var(--paper)"/>
+        <circle cx="74" cy="72" r="5.5" fill="var(--paper)"/>
+        <circle cx="47" cy="73" r="2.5" fill="var(--ink)"/>
+        <circle cx="73" cy="73" r="2.5" fill="var(--ink)"/>
+        <rect x="40" y="84" width="40" height="13" rx="3" fill="var(--paper)"/>
+        <g stroke="var(--ink)" stroke-width="2">
+          <path d="M40 90.5 H80"/>
+          <path d="M50 84 V97"/>
+          <path d="M60 84 V97"/>
+          <path d="M70 84 V97"/>
+        </g>
+      </symbol>
+
+      <!-- The bird that "tweets" each post -->
+      <symbol id="c-bird" viewBox="0 0 120 120">
+        <path fill="var(--ink)" d="M26 62 L4 50 L12 68 L2 80 L28 76 Z"/>
+        <ellipse cx="56" cy="70" rx="38" ry="30" fill="var(--ink)"/>
+        <circle cx="82" cy="44" r="21" fill="var(--ink)"/>
+        <path fill="var(--beak, var(--paper))" stroke="var(--ink)" stroke-width="3" stroke-linejoin="round" d="M100 40 L118 47 L100 54 Z"/>
+        <circle cx="86" cy="40" r="7" fill="var(--paper)"/>
+        <circle cx="88" cy="40" r="3.2" fill="var(--ink)"/>
+        <path fill="none" stroke="var(--paper)" stroke-width="4" stroke-linejoin="round" d="M76 64 C62 56 40 58 30 74 C46 82 66 80 76 64 Z "/>
+        <g fill="none" stroke="var(--ink)" stroke-width="4" stroke-linecap="round">
+          <path d="M48 98 L46 112 M40 112 H52"/>
+          <path d="M66 98 L68 112 M62 112 H74"/>
+        </g>
+      </symbol>
+
+      <symbol id="burst" viewBox="0 0 100 100">
+        <path fill="var(--ink)" d="M50.0 2.0 L57.5 29.3 L80.9 13.2 L69.1 39.0 L97.3 41.7 L71.7 53.8 L91.6 74.0 L64.1 66.9 L66.4 95.1 L50.0 72.0 L33.6 95.1 L35.9 66.9 L8.4 74.0 L28.3 53.8 L2.7 41.7 L30.9 39.0 L19.1 13.2 L42.5 29.3 Z"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- Background doodles -->
+  <div class="doodles" aria-hidden="true">
+    <svg class="doodle d1"><use href="#burst"/></svg>
+    <svg class="doodle d2"><use href="#burst"/></svg>
+    <svg class="doodle d3"><use href="#burst"/></svg>
+    <svg class="doodle d4"><use href="#burst"/></svg>
+  </div>
+
+  <main class="card" aria-live="polite">
+
+    <!-- 1. Welcome & consent -->
+    <section id="screen-welcome" class="screen">
+      <div class="hero" aria-hidden="true">
+        <div class="hero-bird">
+          <span class="bubble">#feelings?</span>
+          <span data-critter="bird" data-size="lg"></span>
+        </div>
+        <div id="hero-crew" class="crew"></div>
+      </div>
+      <p class="eyebrow">Human-AI Interaction · Labeling task</p>
+      <h1>Which emotion is being expressed?</h1>
+      <p class="lead">
+        You'll read <strong>5 short social media posts</strong> and choose the emotion each writer
+        is expressing. It takes about <strong>2–3 minutes</strong>.
+      </p>
+      <ul class="facts">
+        <li><strong>Anonymous.</strong> We don't ask for your name, email or any personal
+          details. We only save the labels you choose and how long each took, linked to a random ID.</li>
+        <li><strong>Voluntary.</strong> You can stop at any time by closing this tab.</li>
+        <li><strong>Content note.</strong> Some posts describe negative feelings such as sadness,
+          anger or fear.</li>
+      </ul>
+      <p class="fine">These posts come from the public
+        <a href="https://huggingface.co/datasets/dair-ai/emotion" target="_blank" rel="noopener">Emotion dataset</a>
+        and are used here for a course assignment at Georgia Tech.</p>
+      <button id="btn-consent" class="primary">I agree, continue</button>
+    </section>
+
+    <!-- 2. Instructions -->
+    <section id="screen-instructions" class="screen" hidden>
+      <p class="eyebrow">Instructions</p>
+      <h1>How to label</h1>
+      <ol class="steps">
+        <li>Read the post. It's shown <strong>all lowercase without punctuation</strong>
+          because the dataset was cleaned that way.</li>
+        <li>Pick the <strong>one emotion the writer is expressing</strong>, not how the post
+          makes you feel.</li>
+        <li>If more than one seems to fit, pick the <strong>strongest</strong> one. If none fits
+          well, pick the <strong>closest</strong>. There are no right or wrong answers, so go with your
+          first impression.</li>
+        <li>Press <strong>Next</strong> to save your answer. You can't go back to earlier posts.</li>
+      </ol>
+      <h2>Meet the six emotions</h2>
+      <dl id="definitions" class="definitions"></dl>
+      <p class="fine">Tip: you can press keys <kbd>1</kbd>–<kbd>6</kbd> to choose and
+        <kbd>Enter</kbd> to continue.</p>
+      <button id="btn-start" class="primary">Start labeling</button>
+      <p id="start-error" class="error" role="alert" hidden></p>
+    </section>
+
+    <!-- 3. Labeling -->
+    <section id="screen-label" class="screen" hidden>
+      <div class="progress-row">
+        <span id="progress-text" class="eyebrow">Post 1 of 5</span>
+        <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="5" aria-valuenow="0" aria-label="Progress">
+          <div id="progress-bar" class="progress-bar"></div>
+        </div>
+      </div>
+      <div class="post">
+        <span class="post-bird" data-critter="bird" aria-hidden="true"></span>
+        <figure class="tweet">
+          <figcaption class="tweet-meta">anonymous tweeter · from the dataset</figcaption>
+          <blockquote id="tweet-text"></blockquote>
+        </figure>
+      </div>
+      <p id="question" class="question">What emotion is the writer expressing?</p>
+      <div id="options" class="options" role="radiogroup" aria-labelledby="question"></div>
+      <div class="actions">
+        <details class="help">
+          <summary>Show definitions</summary>
+          <dl id="definitions-inline" class="definitions compact"></dl>
+        </details>
+        <button id="btn-next" class="primary" disabled>Next</button>
+      </div>
+      <p id="submit-error" class="error" role="alert" hidden></p>
+    </section>
+
+    <!-- 4. Done -->
+    <section id="screen-done" class="screen" hidden>
+      <div id="done-crew" class="crew party" aria-hidden="true"></div>
+      <p class="eyebrow">All done</p>
+      <h1>Thank you!</h1>
+      <p class="lead">Your 5 labels have been saved. You can close this tab now.</p>
+      <p class="fine">Anonymous completion code: <code id="completion-code"></code></p>
+    </section>
+
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

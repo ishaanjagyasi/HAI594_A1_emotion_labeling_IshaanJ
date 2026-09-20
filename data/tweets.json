@@ -1,0 +1,362 @@
+[
+  {
+    "source_row": 1577,
+    "text": "i feel doubtful in my abilities",
+    "ground_truth": "fear",
+    "id": 1
+  },
+  {
+    "source_row": 410,
+    "text": "im feel a little bit shy to talked to her for a second but manage myself because i saw from her eyes that theres something with this girl",
+    "ground_truth": "fear",
+    "id": 2
+  },
+  {
+    "source_row": 683,
+    "text": "i feel it would be foolish and perhaps a little disrespectful to consider doing the long hilly race",
+    "ground_truth": "sadness",
+    "id": 3
+  },
+  {
+    "source_row": 326,
+    "text": "i just can t feel accepted",
+    "ground_truth": "love",
+    "id": 4
+  },
+  {
+    "source_row": 382,
+    "text": "im feeling dazed and alot of things in my mind",
+    "ground_truth": "surprise",
+    "id": 5
+  },
+  {
+    "source_row": 77,
+    "text": "i finally arrived home a couple of hours later feeling somewhat exhausted dehydrated and even sun burnt",
+    "ground_truth": "sadness",
+    "id": 6
+  },
+  {
+    "source_row": 373,
+    "text": "i am reminded of pavement yurusei yatsura and coheed and cambria without feeling offended that they have ripped them off",
+    "ground_truth": "anger",
+    "id": 7
+  },
+  {
+    "source_row": 1677,
+    "text": "i become someone else and i make random awkward jokes honestly this feeling is so strange is this what it feels like to be on top of a cloud",
+    "ground_truth": "fear",
+    "id": 8
+  },
+  {
+    "source_row": 158,
+    "text": "i feel petty all of a sudden",
+    "ground_truth": "anger",
+    "id": 9
+  },
+  {
+    "source_row": 1564,
+    "text": "i feel drained and i am physically sore from the work i did",
+    "ground_truth": "sadness",
+    "id": 10
+  },
+  {
+    "source_row": 754,
+    "text": "i notice how different this question is from why i am feeling so agitated",
+    "ground_truth": "fear",
+    "id": 11
+  },
+  {
+    "source_row": 985,
+    "text": "i feel about this part of my life and how treasured my london flatmates are to me it was especially neat to point at something and say this is where",
+    "ground_truth": "love",
+    "id": 12
+  },
+  {
+    "source_row": 391,
+    "text": "i could feel my mother s sympathetic dread as i was diagnosed",
+    "ground_truth": "love",
+    "id": 13
+  },
+  {
+    "source_row": 212,
+    "text": "i did finally get it if you didn t laugh left me feeling delighted exhausted and just so privileged",
+    "ground_truth": "joy",
+    "id": 14
+  },
+  {
+    "source_row": 1957,
+    "text": "i am feeling amazing and seeing the difference",
+    "ground_truth": "surprise",
+    "id": 15
+  },
+  {
+    "source_row": 978,
+    "text": "i was feeling the need for some christmas crafting this week especially after seeing a couple of lovely quilty christmas projects at stitch group",
+    "ground_truth": "love",
+    "id": 16
+  },
+  {
+    "source_row": 1895,
+    "text": "i remember that i moved them but i cant remember where and i feel so foolish",
+    "ground_truth": "sadness",
+    "id": 17
+  },
+  {
+    "source_row": 1108,
+    "text": "i have been feeling shaky this morning after taking them as well",
+    "ground_truth": "fear",
+    "id": 18
+  },
+  {
+    "source_row": 572,
+    "text": "i don t feel well enough to cook",
+    "ground_truth": "joy",
+    "id": 19
+  },
+  {
+    "source_row": 1083,
+    "text": "i found myself feeling nostalgic as i thought about the temporarily abandoned little bishop chronicles",
+    "ground_truth": "love",
+    "id": 20
+  },
+  {
+    "source_row": 672,
+    "text": "i take a walk in the park feeling joyful",
+    "ground_truth": "joy",
+    "id": 21
+  },
+  {
+    "source_row": 97,
+    "text": "i lay in bed feeling as though i were awaiting an unwelcome visitor nevertheless i told myself i was strong and thought of good things until i felt better",
+    "ground_truth": "sadness",
+    "id": 22
+  },
+  {
+    "source_row": 1451,
+    "text": "i wanted to skate fast wanted to try everything just to see the difference in feel which was amazing",
+    "ground_truth": "surprise",
+    "id": 23
+  },
+  {
+    "source_row": 1801,
+    "text": "i could feel the sincere enthusiasm of all the people who got involved in this project",
+    "ground_truth": "joy",
+    "id": 24
+  },
+  {
+    "source_row": 1969,
+    "text": "i can feel the warmth of the gentle sun",
+    "ground_truth": "love",
+    "id": 25
+  },
+  {
+    "source_row": 1556,
+    "text": "i feel really irritated when i talk about my problems and people start talking about theirs",
+    "ground_truth": "anger",
+    "id": 26
+  },
+  {
+    "source_row": 1347,
+    "text": "i feel that he is gazing me and giving a naughty smile encouraging me to study more",
+    "ground_truth": "love",
+    "id": 27
+  },
+  {
+    "source_row": 197,
+    "text": "i feel suspicious of informality and a lack of credentials",
+    "ground_truth": "fear",
+    "id": 28
+  },
+  {
+    "source_row": 1179,
+    "text": "i didn t and still don t feel lucky though",
+    "ground_truth": "joy",
+    "id": 29
+  },
+  {
+    "source_row": 11,
+    "text": "i feel beautifully emotional knowing that these women of whom i knew just a handful were holding me and my baba on our journey",
+    "ground_truth": "sadness",
+    "id": 30
+  },
+  {
+    "source_row": 948,
+    "text": "i feel more so lately than ever that life is so precious",
+    "ground_truth": "joy",
+    "id": 31
+  },
+  {
+    "source_row": 659,
+    "text": "i was feeling adventurous though so i went with some asian flavors of ginger and sesame oil for my salad",
+    "ground_truth": "joy",
+    "id": 32
+  },
+  {
+    "source_row": 1253,
+    "text": "i don t feel betrayed coz the backstabber had no grounds for their accusation but i m just amazed at some people s ability to do such things",
+    "ground_truth": "surprise",
+    "id": 33
+  },
+  {
+    "source_row": 188,
+    "text": "i feel kinda weird when andrea tries to talk to me about chris",
+    "ground_truth": "fear",
+    "id": 34
+  },
+  {
+    "source_row": 469,
+    "text": "i feel like i would order carryout from if i lived in the area i am still curious to try some of their other tacos",
+    "ground_truth": "surprise",
+    "id": 35
+  },
+  {
+    "source_row": 1095,
+    "text": "im sorry i feel so uncertain about it",
+    "ground_truth": "fear",
+    "id": 36
+  },
+  {
+    "source_row": 1637,
+    "text": "i just got back from another miler faster than yesterday and im feeling amazing",
+    "ground_truth": "surprise",
+    "id": 37
+  },
+  {
+    "source_row": 636,
+    "text": "i feel so fearless in these post grieving days",
+    "ground_truth": "joy",
+    "id": 38
+  },
+  {
+    "source_row": 1306,
+    "text": "i feel a bit dazed but so excited i am going to be so protective she is not going to be let out until she is",
+    "ground_truth": "surprise",
+    "id": 39
+  },
+  {
+    "source_row": 1103,
+    "text": "i really feel like i am useless in this world",
+    "ground_truth": "sadness",
+    "id": 40
+  },
+  {
+    "source_row": 1048,
+    "text": "i wonder if the homeowners would feel weird if i parked to gape at their landscaping",
+    "ground_truth": "surprise",
+    "id": 41
+  },
+  {
+    "source_row": 145,
+    "text": "i think i started to feel a little homesick",
+    "ground_truth": "sadness",
+    "id": 42
+  },
+  {
+    "source_row": 1924,
+    "text": "i never dreamed i would be so busy so soon in the new year but i am loving it and feeling so very gracious and fortunate",
+    "ground_truth": "joy",
+    "id": 43
+  },
+  {
+    "source_row": 265,
+    "text": "i feel so blessed and honored that we get to be its parents",
+    "ground_truth": "love",
+    "id": 44
+  },
+  {
+    "source_row": 1397,
+    "text": "i have come from the summer time and feeling like coach hated me",
+    "ground_truth": "anger",
+    "id": 45
+  },
+  {
+    "source_row": 75,
+    "text": "i feel disgusted in any man in power who talks about electricity being a problem in his area and says even my own house has similar problems",
+    "ground_truth": "anger",
+    "id": 46
+  },
+  {
+    "source_row": 112,
+    "text": "i even feel a little shaky",
+    "ground_truth": "fear",
+    "id": 47
+  },
+  {
+    "source_row": 152,
+    "text": "i was so uncomfortable and feeling weird feelings but wasn t sure if they were contractions since i never really felt contractions with jared until they jacked me up with pitocin",
+    "ground_truth": "surprise",
+    "id": 48
+  },
+  {
+    "source_row": 1625,
+    "text": "i just feel insulted oh oh oh to my exexbf i am so totally entirely over you",
+    "ground_truth": "anger",
+    "id": 49
+  },
+  {
+    "source_row": 307,
+    "text": "i also know what it feels like to be in a relationship where you feel like a burden and too much and not worth loving or pursuing and its just",
+    "ground_truth": "love",
+    "id": 50
+  },
+  {
+    "source_row": 1405,
+    "text": "i almost feel too stubborn to come back as i said that i was leaving",
+    "ground_truth": "anger",
+    "id": 51
+  },
+  {
+    "source_row": 1780,
+    "text": "when i learnt that my best friend had failed the exams",
+    "ground_truth": "anger",
+    "id": 52
+  },
+  {
+    "source_row": 123,
+    "text": "i know its easy to feel a little envious of me and i cant tell you that you shouldnt",
+    "ground_truth": "anger",
+    "id": 53
+  },
+  {
+    "source_row": 1035,
+    "text": "i aint happy im feeling glad i got sunshine in a bag im useless but not for long the future is coming on",
+    "ground_truth": "joy",
+    "id": 54
+  },
+  {
+    "source_row": 1666,
+    "text": "i am lost for words to tell you of my agonising pain i feel from my own sorrowful heart my heart of darkness",
+    "ground_truth": "sadness",
+    "id": 55
+  },
+  {
+    "source_row": 995,
+    "text": "i feel less shy about exploring roles in more physical ways",
+    "ground_truth": "fear",
+    "id": 56
+  },
+  {
+    "source_row": 65,
+    "text": "i feel a little stunned but can t imagine what the folks who were working in the studio up until this morning are feeling",
+    "ground_truth": "surprise",
+    "id": 57
+  },
+  {
+    "source_row": 772,
+    "text": "i can never tell him how i feel and it really sucks because i think he gets really bothered by that",
+    "ground_truth": "anger",
+    "id": 58
+  },
+  {
+    "source_row": 1731,
+    "text": "i always feel sympathetic for those that do as well because life can be really hard on you sometimes when you do have alot of pride",
+    "ground_truth": "love",
+    "id": 59
+  },
+  {
+    "source_row": 1483,
+    "text": "i feel like i am doomed to a life of sleep obsession",
+    "ground_truth": "sadness",
+    "id": 60
+  }
+]
