@@ -1,12 +1,23 @@
 # Emotion Labeling Task (HAI FA26 — Assignment 1, A1-2)
 
+## ▶ Live task
+
+**https://ishaanjagyasi.github.io/HAI594_A1_emotion_labeling_IshaanJ/**
+
+Open the link and complete the task in the browser — nothing to install or run.
+The page is hosted on **GitHub Pages** (served from `site/` by the
+`Deploy site to GitHub Pages` workflow) and stores responses in a **Supabase**
+(Postgres) database.
+
+---
+
 A web interface where anonymous participants label the emotion expressed in 5
 tweets from the [dair-ai/emotion](https://huggingface.co/datasets/dair-ai/emotion)
 dataset (sadness, joy, love, anger, fear, surprise).
 
-- **Live task:** `https://<your-github-username>.github.io/<repo-name>/`
 - **Frontend:** static HTML/CSS/JS in `site/`, hosted on GitHub Pages
 - **Backend:** Supabase (Postgres) — schema and seed data in `supabase/`
+- **Repository:** https://github.com/ishaanjagyasi/HAI594_A1_emotion_labeling_IshaanJ
 
 ## How it works
 
